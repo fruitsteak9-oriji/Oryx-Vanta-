@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Oryx Vanta — Landing (Under Construction)</title>
+<style>
+  :root{
+    --bg1:#0f172a;
+    --bg2:#0b1220;
+    --accent:#00d4ff;
+    --muted:#9aa4b2;
+  }
+  html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(135deg,var(--bg1),var(--bg2)); color:#e6eef8;}
+  .wrap{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px;
+    box-sizing:border-box;
+    background-image: 
+      radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02) 0px, transparent 100px),
+      radial-gradient(circle at 90% 90%, rgba(255,255,255,0.02) 0px, transparent 120px);
+  }
+  .card{
+    width:100%;
+    max-width:980px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:18px;
+    padding:36px;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:28px;
+    align-items:center;
+  }
+  .left{
+    padding:18px 12px;
+  }
+  h1{margin:0;font-size:36px;letter-spacing:1px;}
+  .title-accent{color:var(--accent);font-weight:700;}
+  p.lead{color:var(--muted);margin-top:10px;font-size:15px;max-width:46ch;}
+  .pixel-box{
+    margin-top:22px;
+    display:inline-block;
+    padding:14px 22px;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 8px);
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  /* Pixelated headline */
+  .pixel-text{
+    font-family: monospace;
+    font-size:28px;
+    letter-spacing:6px;
+    line-height:1;
+    color:#ffffff;
+    text-transform:uppercase;
+    position:relative;
+    display:inline-block;
+    transform: scale(1.0);
+  }
+  .pixel-text::after{
+    /* pixel shadow layers to fake pixelation */
+    content: attr(data-text);
+    position:absolute;
+    left:0;top:0;
+    color:transparent;
+    text-shadow:
+      2px 0 0 rgba(0,0,0,0.6),
+      0 2px 0 rgba(0,0,0,0.6),
+      2px 2px 0 rgba(0,0,0,0.45),
+      4px 2px 0 rgba(0,0,0,0.25);
+    filter: blur(0.2px);
+  }
+  .sub{margin-top:8px;color:var(--muted);font-size:13px}
+  /* Right side - construction scene */
+  .scene{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:12px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+  }
+  .hardhat{
+    font-size:84px;
+    filter: drop-shadow(0 18px 30px rgba(2,6,23,0.7));
+    transform: translateY(-6px);
+  }
+  .worker-row{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top:12px;
+  }
+  .worker{
+    width:74px;height:74px;border-radius:12px;background:linear-gradient(180deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;font-size:30px;border:1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  }
+  .progress{
+    margin-top:18px;width:100%;height:10px;border-radius:10px;background:rgba(255,255,255,0.03);overflow:hidden;border:1px solid rgba(255,255,255,0.02)
+  }
+  .bar{height:100%;width:56%;background:linear-gradient(90deg,var(--accent),#7af3ff);box-shadow:0 6px 18px rgba(0,212,255,0.12);transition:width 1s ease;}
+  .meta{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+  footer{margin-top:18px;color:rgba(230,238,248,0.45);font-size:12px;text-align:center}
+  /* responsive */
+  @media (max-width:880px){
+    .card{grid-template-columns: 1fr; padding:18px}
+    .scene{order:-1;margin-bottom:6px}
+  }
+  /* tiny animated pixel 'UV' block */
+  .pixel-uv{
+    font-family: monospace;
+    font-size:22px;
+    letter-spacing:6px;
+    padding:6px 10px;
+    border-radius:6px;
+    background:linear-gradient(180deg,#000,#080808);
+    color:#00ffd6;
+    box-shadow: inset 0 -6px 18px rgba(0,0,0,0.6), 0 8px 30px rgba(2,6,23,0.6);
+    image-rendering: pixelated;
+  }
+  .construction-emoji{filter: drop-shadow(0 14px 26px rgba(0,0,0,0.6)); transform: translateY(3px);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" role="main" aria-labelledby="main-title">
+    <div class="left">
+      <h1 id="main-title">Oryx <span class="title-accent">Vanta</span></h1>
+      <p class="lead">Sleek, powerful, and focused — Oryx Vanta crafts emails with humanlike precision and style.</p>
+      <div class="pixel-box" aria-hidden="true">
+        <div class="pixel-text" data-text="STILL IN CONSTRUCTION">STILL IN CONSTRUCTION</div>
+        <div class="sub">We'll be out soon — building something dark, fast, and elegant.</div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <span class="pixel-uv" title="Pixel UV">U V</span>
+      </div>
+
+      <div style="margin-top:22px;color:var(--muted);font-size:13px;max-width:60ch;">
+        <strong>Release:</strong> Oryx Vanta 2.0 — Public stable release<br>
+        <strong>Edition:</strong> Oryx Vanta X — Premium flagship (available soon)
+      </div>
+      <footer>© Oryx &nbsp;•&nbsp; Built with vision • <span style="color:var(--accent)">Phizzon</span></footer>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <div class="hardhat">👷‍♂️</div>
+      <div class="worker-row" aria-hidden="true">
+        <div class="worker">🏗️</div>
+        <div class="worker">🔧</div>
+        <div class="worker">🧱</div>
+      </div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="56">
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="meta">Our team of tiny engineers is perfecting Oryx Vanta's language core.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // gentle animation to the bar
+  setTimeout(()=>{
+    document.getElementById('bar').style.width = '72%';
+  },800);
+
+  // make the pixel text pulse slightly
+  const pt = document.querySelector('.pixel-text');
+  let grow = true;
+  setInterval(()=>{
+    pt.style.transform = grow ? 'scale(1.02)' : 'scale(1.0)';
+    grow = !grow;
+  },1400);
+</script>
+</body>
+</html>
